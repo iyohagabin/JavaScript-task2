@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang "en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device=width, initial-scale=1.0" />
+<title>js task2</title>
+</head>
+<body>
+<script>
+let data = [
+  { principal: 2500, time: 1.8 },
+  { principal: 1000, time: 5 },
+  { principal: 3000, time: 1 },
+  { principal: 2000, time: 3 }
+];
+
+function interestCalculator(data) {
+  
+  const interestData = data.map((value) => {
+    
+    const rate = data.forEach((element) => {
+      if (element.principal >= 2500 && element.time >= 3) {
+        element.rate = 4;
+      } else if (
+        element.principal >= 2500 &&
+        element.time > 1 &&
+        element.time < 3
+      ) {
+        element.rate = 3;
+      } else if (element.principal < 2500 && element.time <= 1) {
+        element.rate = 2;
+      }else{
+        element.rate = 1;}
+      return element.rate;
+    });
+    const interest = calculateInterest(
+      value.principal,
+      value.time,
+      value.rate
+    );
+
+    return { rate, interest, ...value };
+  });
+  console.log(interestData)
+
+
+
+  return interestData;
+}
+function calculateInterest(principal, rate, time) {
+  return (principal * rate * time) / 100;
+}
+
+console.log(interestCalculator(data));
+
+</script>
+
+</body>
+</html>
+  
